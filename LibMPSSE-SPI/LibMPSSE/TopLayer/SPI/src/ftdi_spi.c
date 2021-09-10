@@ -4,7 +4,7 @@
  * \author FTDI
  * \date 20110523
  *
- * Copyright © 2000-2014 Future Technology Devices International Limited
+ * Copyright ï¿½ 2000-2014 Future Technology Devices International Limited
  *
  *
  * THIS SOFTWARE IS PROVIDED BY FUTURE TECHNOLOGY DEVICES INTERNATIONAL LIMITED ``AS IS'' AND ANY EXPRESS
@@ -787,7 +787,7 @@ FTDI_API FT_STATUS SPI_IsBusy(FT_HANDLE handle, bool *state)
 	status = FT_Channel_Read(SPI,handle,noOfBytes,buffer,&noOfBytesTransferred);
 	CHECK_STATUS(status);
 	DBG(MSG_DEBUG,"Low byte read = 0x%x\n",buffer[0]);
-	if(0 == (buffer[0] && 0x04))
+	if(0 == (buffer[0] & 0x04))
 		*state=FALSE;
 	else
 		*state=TRUE;
